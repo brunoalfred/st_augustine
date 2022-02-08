@@ -1,15 +1,20 @@
 import 'package:flutter/material.dart';
+import 'package:tenzii/features/playlist/data/models/song.dart';
+
 
 class LyricsScreen extends StatelessWidget {
-  const LyricsScreen({Key? key}) : super(key: key);
+  const LyricsScreen({Key? key, required this.song}) : super(key: key);
+
+  final Song song;
 
   @override
   Widget build(BuildContext context) {
+    
     return Scaffold(
       appBar: AppBar(
         backgroundColor: const Color(0xFF212328),
         elevation: 0,
-        title: const Text('Song Name'),
+        title: Text(song.title),
         leading: IconButton(
           icon: const Icon(Icons.arrow_back),
           onPressed: () {
@@ -28,25 +33,28 @@ class LyricsScreen extends StatelessWidget {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  const Padding(
-                    padding: EdgeInsets.only(bottom: 10),
+                  Padding(
+                    padding: const EdgeInsets.only(bottom: 10),
                     child: Text(
-                      '[ Verse 1 ]',
-                      style: TextStyle(
+                      '[ Verse ${index + 1} ]',
+                      style: const TextStyle(
                         color: Color(0xFFDD7A21),
                         fontSize: 18,
                       ),
                     ),
                   ),
                   Text(
-                    ' Nimekuwa wako wewe \n Damu imenisafisha; \n Sifa kwa mwana kondoo. ',
-                    style: TextStyle(color: Colors.grey[300], fontSize: 25),
+                    song.verses[index]['verse'].toString(),
+                    style: TextStyle(
+                      color: Colors.grey[300],
+                      fontSize: 27,
+                    ),
                   ),
                 ],
               ),
             );
           },
-          itemCount: 5,
+          itemCount: song.verses.length,
         ),
       ),
     );

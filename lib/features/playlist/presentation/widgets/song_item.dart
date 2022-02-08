@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:st_augustine/features/lyrics/presentation/presentation.dart';
+import 'package:tenzii/features/lyrics/presentation/presentation.dart';
+import 'package:tenzii/features/playlist/data/models/song.dart';
 
 class SongItem extends StatelessWidget {
-  const SongItem({Key? key}) : super(key: key);
+   const SongItem({Key? key, required this.song}) : super(key: key);
+
+  final Song song;
 
   @override
   Widget build(BuildContext context) {
@@ -12,14 +15,14 @@ class SongItem extends StatelessWidget {
           Navigator.push<dynamic>(
             context,
             MaterialPageRoute<dynamic>(
-              builder: (context) => const LyricsScreen(),
+              builder: (context) =>  LyricsScreen(song: song,),
             ),
           );
         },
         child: Row(
           children: [
             ClipRRect(
-              borderRadius: BorderRadius.circular(70),
+              borderRadius: BorderRadius.circular(60),
               child: Image.network(
                 'https://is3-ssl.mzstatic.com/image/thumb/Music124/v4/76/67/94/76679484-e249-86a5-f85d-b1fa0b6a6fbf/195375061371.png/400x400cc.jpg',
                 height: 80,
@@ -27,37 +30,42 @@ class SongItem extends StatelessWidget {
                 fit: BoxFit.cover,
               ),
             ),
-            Padding(
-              padding: const EdgeInsets.only(left: 20),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: const [
-                  Text(
-                    'Wewe ni mungu',
-                    style: TextStyle(
-                      color: Colors.white,
-                      fontSize: 20,
+            Expanded(
+              child: Padding(
+                padding: const EdgeInsets.only(left: 20),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children:  [
+                    Text(
+                      song.title,
+                      
+                      style: const TextStyle(
+                        color: Colors.white,
+                        fontSize: 20,
+                      ),
                     ),
-                  ),
-                  Text(
-                    'Kizito makuburi',
-                    style: TextStyle(
-                      color: Colors.grey,
-                      fontSize: 14,
+                    const Text(
+                      'Tenzi za rohoni',
+                      style: TextStyle(
+                        color: Colors.grey,
+                        fontSize: 14,
+                      ),
                     ),
-                  ),
-                  // add a like icon and a dislike icon
-                ],
+                    // add a like icon and a dislike icon
+                  ],
+                ),
               ),
             ),
-            Padding(
-              padding: EdgeInsets.only(
-                left: MediaQuery.of(context).size.width * 0.2,
-              ),
-              child: IconButton(
-                icon: const Icon(Icons.thumb_up),
-                color: Colors.white,
-                onPressed: () => debugPrint('Like'),
+            Expanded(
+              child: Padding(
+                padding: EdgeInsets.only(
+                  left: MediaQuery.of(context).size.width * 0.2,
+                ),
+                child: IconButton(
+                  icon: const Icon(Icons.thumb_up),
+                  color: Colors.white,
+                  onPressed: () => debugPrint('Like'),
+                ),
               ),
             ),
           ],

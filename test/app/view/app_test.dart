@@ -6,8 +6,9 @@
 // https://opensource.org/licenses/MIT.
 
 import 'package:flutter_test/flutter_test.dart';
-import 'package:st_augustine/app/app.dart';
-import 'package:st_augustine/features/playlist/presentation/pages/playlist_screen.dart';
+import 'package:tenzii/app/app.dart';
+import 'package:tenzii/features/playlist/presentation/pages/playlist_screen.dart';
+
 
 void main() {
   group('App', () {

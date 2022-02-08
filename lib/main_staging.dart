@@ -5,8 +5,8 @@
 // license that can be found in the LICENSE file or at
 // https://opensource.org/licenses/MIT.
 
-import 'package:st_augustine/app/app.dart';
-import 'package:st_augustine/bootstrap.dart';
+import 'package:tenzii/app/app.dart';
+import 'package:tenzii/bootstrap.dart';
 
 void main() {
   bootstrap(() => const App());

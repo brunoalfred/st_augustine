@@ -1,4 +1,4 @@
-# St Augustine
+# Tenzii
 
 ![coverage][coverage_badge]
 [![style: very good analysis][very_good_analysis_badge]][very_good_analysis_link]
@@ -31,7 +31,7 @@ $ flutter run --flavor staging --target lib/main_staging.dart
 $ flutter run --flavor production --target lib/main_production.dart
 ```
 
-_\*St Augustine works on iOS, Android, and Web._
+_\*Tenzii works on iOS, Android, and Web._
 
 ---
 
@@ -92,7 +92,7 @@ This project relies on [flutter_localizations][flutter_localizations_link] and f
 3. Use the new string
 
 ```dart
-import 'package:st_augustine/l10n/l10n.dart';
+import 'package:tenzii/l10n/l10n.dart';
 
 @override
 Widget build(BuildContext context) {

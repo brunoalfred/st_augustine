@@ -1,4 +1,4 @@
-package jasiri.labs.st_augustine
+package jasiri.labs.tenzii
 
 import io.flutter.embedding.android.FlutterActivity
 
