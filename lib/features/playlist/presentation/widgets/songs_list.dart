@@ -1,5 +1,7 @@
-import 'dart:io';
+import 'dart:async';
+
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart' show rootBundle;
 import 'package:tenzii/features/playlist/data/models/song.dart';
 import 'package:tenzii/features/playlist/presentation/widgets/song_item.dart';
 import 'package:yaml/yaml.dart';
@@ -9,17 +11,25 @@ class SongsList extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    // TODO: get absolute path to songs.yml 
-    // FIMXE: remove the hardcoded path
+    // TODO: got the Path using root bundle.
+    // FIMXE: yml file is read as string s but not getting converted to ymlList
 
-    final items = loadYaml(
-      File('/Users/macbookair/Code/GitHub/brunoalfred/tenzii/assets/songs.yml').readAsStringSync(),
-    ) as YamlList;
+    var items = YamlList();
 
-// create list named songs
+    Future<String> loadAsset(String path) async {
+      return rootBundle.loadString(path);
+    }
+
+    loadAsset('assets/songs.yml').then((s) {
+      // print(s);
+      items = loadYaml(s) as YamlList;
+    });
+
+    // print(items);
+    // create list named songs
     final songs = <Song>[];
 
-// iterate over items in content list
+    // iterate over items in content list
     for (final item in items) {
       final song = Song.fromYaml(item as YamlMap);
       songs.add(song);
