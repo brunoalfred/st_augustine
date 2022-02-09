@@ -27,7 +27,7 @@ class App extends StatelessWidget {
         GlobalMaterialLocalizations.delegate,
       ],
       supportedLocales: AppLocalizations.supportedLocales,
-      home: const PlaylistSceen(),
+      home: const PlaylistScreen(),
     );
   }
 }

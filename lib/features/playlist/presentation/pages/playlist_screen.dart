@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:tenzii/features/playlist/presentation/widgets/songs_list.dart';
 
-class PlaylistSceen extends StatelessWidget {
-  const PlaylistSceen({Key? key}) : super(key: key);
+class PlaylistScreen extends StatelessWidget {
+  const PlaylistScreen({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
