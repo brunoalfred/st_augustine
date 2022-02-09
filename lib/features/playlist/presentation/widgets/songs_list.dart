@@ -11,7 +11,7 @@ class SongsList extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    // TODO: got the Path using path_provider.
+    // TODO: got the Path using rootBundle.
     // FIMXE: yml file is read as string s but not getting converted to ymlList
 
     var items = YamlList();
@@ -21,11 +21,11 @@ class SongsList extends StatelessWidget {
     }
 
     loadAsset('assets/songs.yml').then((s) {
-      print(s);
+      // print(s);
       items = loadYaml(s) as YamlList;
     });
 
-    print(items);
+    // print(items);
     // create list named songs
     final songs = <Song>[];
 
