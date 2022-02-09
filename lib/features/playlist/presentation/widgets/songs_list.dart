@@ -11,7 +11,7 @@ class SongsList extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    // TODO: got the Path using rootBundle.
+    // TODO: got the Path using root bundle.
     // FIMXE: yml file is read as string s but not getting converted to ymlList
 
     var items = YamlList();
